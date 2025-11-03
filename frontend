@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login & Signup Form</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #fff;
+      width: 380px;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.5s ease;
+    }
+
+    .form {
+      position: absolute;
+      width: 100%;
+      transition: all 0.5s ease;
+    }
+
+    .form h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .input-box {
+      margin-bottom: 15px;
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background: #2575fc;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #1a5fd0;
+    }
+
+    .toggle {
+      text-align: center;
+      margin-top: 15px;
+      color: #555;
+    }
+
+    .toggle a {
+      color: #2575fc;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Animation for switching forms */
+    #signup {
+      left: 100%;
+      opacity: 0;
+    }
+
+    .container.active #signup {
+      left: 0;
+      opacity: 1;
+    }
+
+    .container.active #login {
+      left: -100%;
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="form-container">
+    <!-- Login Form -->
+    <div class="form" id="login">
+      <h2>Login</h2>
+      <div class="input-box">
+        <input type="email" placeholder="Email" required />
+      </div>
+      <div class="input-box">
+        <input type="password" placeholder="Password" required />
+      </div>
+      <button>Login</button>
+      <div class="toggle">
+        Don't have an account? <a id="showSignup">Sign up</a>
+      </div>
+    </div>
+
+    <!-- Signup Form -->
+    <div class="form" id="signup">
+      <h2>Sign Up</h2>
+      <div class="input-box">
+        <input type="text" placeholder="Full Name" required />
+      </div>
+      <div class="input-box">
+        <input type="email" placeholder="Email" required />
+      </div>
+      <div class="input-box">
+        <input type="password" placeholder="Password" required />
+      </div>
+      <button>Sign Up</button>
+      <div class="toggle">
+        Already have an account? <a id="showLogin">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const container = document.getElementById("form-container");
+    const showSignup = document.getElementById("showSignup");
+    const showLogin = document.getElementById("showLogin");
+
+    showSignup.addEventListener("click", () => container.classList.add("active"));
+    showLogin.addEventListener("click", () => container.classList.remove("active"));
+  </script>
+
+</body>
+</html>
